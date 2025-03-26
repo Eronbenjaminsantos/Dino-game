@@ -67,7 +67,7 @@ class Ground extends Phaser.Physics.Arcade.StaticGroup {
     }
 
     move() {
-        this.groundImage.x -= 6; // Tripled scroll speed from 2 to 6
+        this.groundImage.x -= 12; // Tripled scroll speed from 2 to 6
         if (this.groundImage.x <= -this.groundImage.width) {
             this.groundImage.x = this.scene.cameras.main.width;
         }
@@ -211,7 +211,7 @@ class FrogRunner extends Phaser.Scene {
         cactus.setScale(0.5);
         cactus.body.setSize(cactus.width * 0.8, cactus.height * 0.9);
         cactus.body.setOffset(cactus.width * 0.1, cactus.height * 0.1);
-        cactus.setVelocityX(-600); // Tripled velocity from -200 to -600
+        cactus.setVelocityX(-800); // Tripled velocity from -200 to -600
 
         // Schedule next cactus spawn
         this.time.delayedCall(this.spawnInterval, this.spawnCactus, [], this);
@@ -370,7 +370,7 @@ const config = {
         default: 'arcade',
         arcade: {
             gravity: {
-                y: 1088
+                y: 1450
             }, // Doubled gravity from 544 to 1088
             debug: false
         }
