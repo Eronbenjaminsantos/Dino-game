@@ -135,13 +135,17 @@ class FrogRunner extends Phaser.Scene {
         this.physics.add.collider(this.player, this.ground1);
         this.physics.add.collider(this.player, this.ground2);
 
-        this.input.keyboard.on('keydown-SPACE', function(event) {
+        const jumpHandler = () => {
             if (this.player.isAlive) {
                 this.player.jump();
             } else if (this.isGameOver) {
                 this.scene.restart();
             }
-        }, this);
+        };
+        
+        this.input.keyboard.on('keydown-SPACE', jumpHandler, this);
+        this.input.on('pointerdown', jumpHandler); // Add touch support
+
 
         this.setupCacti();
         this.setupScoreAndHighScore();
